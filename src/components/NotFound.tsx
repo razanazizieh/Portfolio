@@ -40,14 +40,14 @@ export default function NotFound({ handleNav }: NotFoundProps) {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-white relative flex flex-col justify-center items-center p-6 selection:bg-white selection:text-black antialiased">
+    <div className="min-h-screen w-full bg-[var(--bg-color)] text-[var(--text-color)] relative flex flex-col justify-center items-center p-6 selection:bg-[var(--text-color)] selection:text-[var(--bg-color)] antialiased">
       
       {/* Absolute Void Core */}
       <div className="max-w-xl text-center space-y-6 z-10">
         
         {/* Swiss Style High-Contrast Typography (Fixed Pixelation) */}
         <h1 
-          className="text-[10rem] md:text-[15rem] font-black tracking-[calc(-0.06em)] leading-[0.8] text-white select-none font-sans antialiased subpixel-antialiased"
+          className="text-[10rem] md:text-[15rem] font-black tracking-[calc(-0.06em)] leading-[0.8] text-[var(--text-color)] select-none font-sans antialiased subpixel-antialiased"
           style={{
             transform: 'translateZ(0)',
             backfaceVisibility: 'hidden',
@@ -65,10 +65,10 @@ export default function NotFound({ handleNav }: NotFoundProps) {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="space-y-4 pt-4"
         >
-          <h2 className="text-xs md:text-sm font-semibold tracking-[0.2em] text-neutral-400 uppercase font-sans">
+          <h2 className="text-xs md:text-sm font-semibold tracking-[0.2em] text-[var(--text-dim)] uppercase font-sans">
             PAGE NOT FOUND
           </h2>
-          <p className="text-xs text-neutral-500 max-w-xs mx-auto leading-relaxed font-mono">
+          <p className="text-xs text-[var(--text-dim-high)] max-w-xs mx-auto leading-relaxed font-mono opacity-80">
             The page you are looking for doesn't exist or has been moved.
           </p>
         </motion.div>
@@ -82,7 +82,7 @@ export default function NotFound({ handleNav }: NotFoundProps) {
         >
           <button
             onClick={handleReturnHome}
-            className="text-xs font-mono tracking-[0.25em] text-neutral-500 hover:text-[var(--text-color)] transition-colors duration-300 uppercase cursor-pointer focus:outline-none focus-visible:underline"
+            className="text-xs font-mono tracking-[0.25em] text-[var(--text-dim)] hover:text-[var(--text-color)] transition-colors duration-300 uppercase cursor-pointer focus:outline-none focus-visible:underline"
           >
             RETURN HOME
           </button>
