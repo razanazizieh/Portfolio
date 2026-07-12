@@ -517,26 +517,30 @@ export default function ProjectCaseStudy({
   //   }
   //   return list;
   // }, [project]);
-  const allImages = React.useMemo(() => {
-    const list: { image: string; label: string }[] = [];
-    if (project.image) {
-      list.push({ image: project.image, label: "Featured Hero Specimen" });
-    }
-    if (project.gallery) {
-      project.gallery.forEach((g, idx) => {
-        if (!g) return;
-        const imgUrl = typeof g === "string" ? g : g.image;
-        const imgLabel =
-          typeof g === "string" ? `Specimen View ${idx + 1}` : g.label;
+const allImages = React.useMemo(() => {
+  const list: { image: string; label: string }[] = [];
+  
+  if (project.image) {
+    list.push({ image: project.image, label: "Featured Hero Specimen" });
+  }
 
-        if (imgUrl && imgUrl !== project.image) {
-          list.push({ image: imgUrl, label: imgLabel });
-        }
-      });
-    }
+  // ميزة المعرض معطلة مؤقتاً لتظهر صورة واحدة فقط، يمكنكِ تفعيلها بالمستقبل بحذف علامات التعليق بالأسفل
+  /*
+  if (project.gallery) {
+    project.gallery.forEach((g, idx) => {
+      if (!g) return;
+      const imgUrl = typeof g === "string" ? g : g.image;
+      const imgLabel = typeof g === "string" ? `Specimen View ${idx + 1}` : g.label;
 
-    return list;
-  }, [project]);
+      if (imgUrl && imgUrl !== project.image) {
+        list.push({ image: imgUrl, label: imgLabel });
+      }
+    });
+  }
+  */
+
+  return list;
+}, [project]);
   // Filter projects based on active matrix category for internal cycling
   const filteredNavProjects = React.useMemo(() => {
     if (activeFilter === "ALL") return PROJECTS_DATA;
