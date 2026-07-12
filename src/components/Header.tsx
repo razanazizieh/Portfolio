@@ -86,7 +86,7 @@ export default function Header({
             href="#works"
             onClick={(e) => handleNav(e, 'works')}
             aria-label="Back to Works"
-            className="relative pointer-events-auto interactive-hover cursor-pointer bg-transparent border-0 typo-mono-sub text-zinc-500 hover:text-white transition-colors duration-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] px-2 py-1 rounded block font-medium text-xs tracking-wider uppercase before:absolute before:content-[''] before:-inset-y-3 before:-inset-x-2 before:block"
+            className="relative pointer-events-auto interactive-hover cursor-pointer bg-transparent border-0 typo-mono-sub text-zinc-500 hover:text-[var(--text-color)] transition-colors duration-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] px-2 py-1 rounded block font-medium text-xs tracking-wider uppercase before:absolute before:content-[''] before:-inset-y-3 before:-inset-x-2 before:block"
           >
             Back to Works ✕
           </a>
@@ -162,7 +162,7 @@ export default function Header({
           <button
             onClick={(e) => handleNav(e, 'works')}
             aria-label="Back to Works"
-            className="typo-mono-sub text-zinc-500 hover:text-white transition-colors duration-0 h-11 px-2 uppercase flex items-center justify-center gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] rounded-md font-medium text-xs tracking-wider cursor-pointer"
+            className="typo-mono-sub text-zinc-500 hover:text-[var(--text-color)] transition-colors duration-0 h-11 px-2 uppercase flex items-center justify-center gap-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] rounded-md font-medium text-xs tracking-wider cursor-pointer"
           >
             Back ✕
           </button>

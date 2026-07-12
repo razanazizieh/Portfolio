@@ -929,7 +929,7 @@ const allImages = React.useMemo(() => {
                   handlePrevClick();
                 }
               }}
-              className="typo-mono-btn font-medium text-zinc-500 hover:text-white transition-colors duration-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] uppercase cursor-pointer flex items-center gap-1 bg-transparent border-none outline-none p-0"
+              className="typo-mono-btn font-medium text-zinc-500 hover:text-[var(--text-color)] transition-colors duration-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] uppercase cursor-pointer flex items-center gap-1 bg-transparent border-none outline-none p-0"
             >
               <span>← PREVIOUS PROJECT</span>
             </motion.button>
@@ -947,7 +947,7 @@ const allImages = React.useMemo(() => {
                   handleNextClick();
                 }
               }}
-              className="typo-mono-btn font-medium text-zinc-500 hover:text-white transition-colors duration-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] uppercase cursor-pointer flex items-center gap-1 bg-transparent border-none outline-none p-0"
+              className="typo-mono-btn font-medium text-zinc-500 hover:text-[var(--text-color)] transition-colors duration-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] uppercase cursor-pointer flex items-center gap-1 bg-transparent border-none outline-none p-0"
             >
               <span>NEXT PROJECT →</span>
             </motion.button>

@@ -82,7 +82,7 @@ export default function NotFound({ handleNav }: NotFoundProps) {
         >
           <button
             onClick={handleReturnHome}
-            className="text-xs font-mono tracking-[0.25em] text-neutral-500 hover:text-white transition-colors duration-300 uppercase cursor-pointer focus:outline-none focus-visible:underline"
+            className="text-xs font-mono tracking-[0.25em] text-neutral-500 hover:text-[var(--text-color)] transition-colors duration-300 uppercase cursor-pointer focus:outline-none focus-visible:underline"
           >
             RETURN HOME
           </button>

@@ -184,7 +184,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Razan's GitHub profile in a new browser tab"
-                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-white transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
+                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               >
@@ -214,7 +214,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Razan's LinkedIn profile in a new browser tab"
-                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-white transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
+                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               >
@@ -244,7 +244,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Razan's Instagram profile in a new browser tab"
-                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-white transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
+                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               >
