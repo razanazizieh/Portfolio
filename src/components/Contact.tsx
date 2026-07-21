@@ -154,14 +154,14 @@ export default function Contact() {
                 hidden: {},
                 visible: {
                   transition: {
-                    staggerChildren: 0.05,
+                    staggerChildren: 0.05
                   }
                 }
               }}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
-              className="flex flex-col gap-2 w-full max-w-lg lg:items-end lg:text-right mt-8 sm:mt-10"
+              className="flex flex-col gap-4 lg:gap-2 w-full max-w-lg lg:items-end lg:text-right mt-8 sm:mt-10"
             >
               {/* GitHub */}
               <motion.a
@@ -184,7 +184,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Razan's GitHub profile in a new browser tab"
-                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
+                className="flex justify-start lg:justify-end py-3 lg:py-1.5 touch-manipulation text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               >
@@ -214,7 +214,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Razan's LinkedIn profile in a new browser tab"
-                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
+                className="flex justify-start lg:justify-end py-3 lg:py-1.5 touch-manipulation text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               >
@@ -244,7 +244,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Razan's Instagram profile in a new browser tab"
-                className="flex justify-start lg:justify-end py-2.5 lg:py-1.5 text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
+                className="flex justify-start lg:justify-end py-3 lg:py-1.5 touch-manipulation text-neutral-400 hover:text-[var(--text-color)] transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--text-color)] focus-visible:px-2 rounded-sm cursor-pointer select-none"
                 whileHover={{ x: 3 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               >
@@ -257,7 +257,6 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Minimal Swiss footer: Subtle upward settling */}
         <motion.footer
           variants={{
             hidden: { 

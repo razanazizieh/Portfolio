@@ -499,48 +499,31 @@ export default function ProjectCaseStudy({
   const isCodeCentric = project.category === "CODE";
 
   // Collect all images safely for lightbox viewing, handling both string paths and object configurations
-  // const allImages = React.useMemo(() => {
-  //   const list: { image: string; label: string }[] = [];
-  //   if (project.image) {
-  //     list.push({ image: project.image, label: "Featured Hero Specimen" });
-  //   }
-  //   if (project.gallery) {
-  //     project.gallery.forEach((g, idx) => {
-  //       if (!g) return;
-  //       const imgUrl = typeof g === 'string' ? g : g.image;
-  //       const imgLabel = typeof g === 'string' ? `Specimen View ${idx + 1}` : g.label;
+  const allImages = React.useMemo(() => {
+    const list: { image: string; label: string }[] = [];
+    if (project.image) {
+      list.push({ image: project.image, label: "Featured Hero Specimen" });
+    }
 
-  //       if (imgUrl && imgUrl !== project.image) {
-  //         list.push({ image: imgUrl, label: imgLabel });
-  //       }
-  //     });
-  //   }
-  //   return list;
-  // }, [project]);
-const allImages = React.useMemo(() => {
-  const list: { image: string; label: string }[] = [];
-  
-  if (project.image) {
-    list.push({ image: project.image, label: "Featured Hero Specimen" });
-  }
+    /* 
+    // تعليق مؤقت لعرض صورة واحدة فقط حالياً
+    if (project.gallery) {
+      project.gallery.forEach((g, idx) => {
+        if (!g) return;
+        const imgUrl = typeof g === "string" ? g : g.image;
+        const imgLabel =
+          typeof g === "string" ? `Specimen View ${idx + 1}` : g.label;
 
-  // ميزة المعرض معطلة مؤقتاً لتظهر صورة واحدة فقط، يمكنكِ تفعيلها بالمستقبل بحذف علامات التعليق بالأسفل
-  /*
-  if (project.gallery) {
-    project.gallery.forEach((g, idx) => {
-      if (!g) return;
-      const imgUrl = typeof g === "string" ? g : g.image;
-      const imgLabel = typeof g === "string" ? `Specimen View ${idx + 1}` : g.label;
+        if (imgUrl && imgUrl !== project.image) {
+          list.push({ image: imgUrl, label: imgLabel });
+        }
+      });
+    }
+    */
 
-      if (imgUrl && imgUrl !== project.image) {
-        list.push({ image: imgUrl, label: imgLabel });
-      }
-    });
-  }
-  */
+    return list;
+  }, [project]);
 
-  return list;
-}, [project]);
   // Filter projects based on active matrix category for internal cycling
   const filteredNavProjects = React.useMemo(() => {
     if (activeFilter === "ALL") return PROJECTS_DATA;
@@ -686,6 +669,41 @@ const allImages = React.useMemo(() => {
               >
                 {project.subtitle}
               </motion.p>
+            )}
+
+            {(project.live || (isCodeCentric && project.repository)) && (
+              <motion.div
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.35,
+                  ease: MOTION_CURVE_PREMIUM,
+                  delay: 0.24,
+                }}
+                className="flex items-center gap-6 flex-wrap mt-4"
+              >
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="typo-mono-btn text-[var(--text-dim)] hover:text-[var(--text-color)] transition-colors duration-300 uppercase cursor-pointer flex items-center hover:underline"
+                  >
+                    <span>VIEW LIVE SITE</span>
+                  </a>
+                )}
+
+                {isCodeCentric && project.repository && (
+                  <a
+                    href={project.repository}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="typo-mono-btn text-[var(--text-dim)] hover:text-[var(--text-color)] transition-colors duration-300 uppercase cursor-pointer flex items-center hover:underline"
+                  >
+                    <span>VIEW SOURCE CODE</span>
+                  </a>
+                )}
+              </motion.div>
             )}
           </div>
 

@@ -7,7 +7,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle?: string;
-  category: 'FULL-STACK' | 'CODE' | 'UI';
+  category: "FULL-STACK" | "CODE" | "UI";
   year?: string;
   overview?: string;
   myRole?: string;
@@ -20,6 +20,7 @@ export interface Project {
   image?: string; // URL reference or imported image path
   secondaryImage?: string; // Secondary project image mockup
   live?: string;
+  repository?: string;
   projectType?: string;
 }
 
