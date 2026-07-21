@@ -118,26 +118,26 @@ export const PROJECTS_DATA: Project[] = [
     live: "https://razanazizieh.github.io/portfoli0/",
     githubUrl: "https://github.com/razanazizieh/portfoli0",
   },
-{
+  {
     id: "brutalist-architecture",
     title: "BRUTALIST INTERFACE ARCHITECTURE",
     category: "UI",
     year: "2026",
     projectType: "Interface Study",
     overview:
-      "A high-fidelity, full-page visual interface built around brutalist grid structures, dynamic spatial layouts, and precision micro-interactions.",
+      "A high-fidelity, full-page visual interface study designed using Google AI Studio, exploring brutalist grid structures and dynamic spatial interactions.",
     challenge:
       "Designing a dense, typography-focused full-page layout that maintains strong structural hierarchy, visual balance, and fluid scaling across various display sizes.",
     solution:
-      "Utilized viewport-driven grid coordinates paired with strict scale limits to create an adaptable layout structure that responds seamlessly to user interactions.",
+      "Leveraged Google AI Studio to prototype and validate responsive grid coordinates and viewport-relative scaling limits in real time.",
     myRole:
-      "Crafted the complete user interface concept and layout architecture, defining fluid spatial transitions, interactive elements, and typographic systems across the entire page.",
+      "Designed the complete visual concept and layout architecture, utilizing Google AI Studio to prototype fluid spatial transitions, micro-interactions, and typographic systems.",
     technicalHighlights: [
-      "Full-page brutalist grid layout composition",
-      "Precision typography alignment and scale rules",
-      "Interactive micro-transitions and spatial hierarchy",
+      "Full-page brutalist grid layout design",
+      "AI-assisted interactive UI/UX prototyping",
+      "Precision typography alignment and spatial scale rules",
     ],
-    technology: ["Figma"],
+    technology: ["Google AI Studio", "UI/UX Design"],
     image: specimenImage,
     gallery: [
       { label: "Tactile Grid Interaction Map", image: specimenImage },
@@ -148,7 +148,7 @@ export const PROJECTS_DATA: Project[] = [
       { label: "High-Contrast Visual Space Layout", image: dwelloImage },
     ],
     impact:
-      "A comprehensive visual specification demonstrating advanced full-page layout composition and fluid UI design aesthetics.",
+      "A polished visual prototype demonstrating advanced full-page layout composition and modern UI design aesthetics.",
     live: "#",
   },
 ];
