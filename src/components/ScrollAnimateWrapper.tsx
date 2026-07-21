@@ -42,6 +42,17 @@ export const ScrollAnimateWrapper: React.FC<ScrollAnimateWrapperProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Map backward compatibility variants to the refined system
   let finalDirection = (direction || 'up') as 'left' | 'right' | 'up' | 'down' | 'fade' | 'zoom' | 'diagonal-left' | 'diagonal-right' | 'mask';
   let finalImportance = (importance || 'secondary') as ElementImportance;
@@ -81,7 +92,7 @@ export const ScrollAnimateWrapper: React.FC<ScrollAnimateWrapperProps> = ({
   };
 
   const getInitialState = () => {
-    if (shouldReduceMotion) {
+    if (shouldReduceMotion || isMobile) {
       return { x: 0, y: 0, scale: 1, clipPath: "none" };
     }
     switch (finalDirection) {
@@ -110,7 +121,7 @@ export const ScrollAnimateWrapper: React.FC<ScrollAnimateWrapperProps> = ({
 
   const animateVariants = {
     hidden: {
-      opacity: 0,
+      opacity: isMobile ? 1 : 0,
       ...initialState,
       scale: initialState.scale,
       transition: {

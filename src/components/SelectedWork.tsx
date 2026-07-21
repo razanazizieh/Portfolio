@@ -32,9 +32,21 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
   const containerRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const isEven = index % 2 === 0;
+
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobileViewport(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const isAnyProjectActive = hoveredProjectId !== null || focusedProjectId !== null;
   const isThisProjectActive = hoveredProjectId === project.id || focusedProjectId === project.id;
-  const showFaded = isAnyProjectActive && !isThisProjectActive;
+  const showFaded = !isMobileViewport && isAnyProjectActive && !isThisProjectActive;
 
   const [shouldEagerLoad, setShouldEagerLoad] = useState(index === 0);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -119,8 +131,8 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
   const getSmallLabelVariants = () => {
     return {
       initial: {
-        opacity: 0,
-        y: shouldReduceMotion ? 0 : 15,
+        opacity: isMobileViewport ? 1 : 0,
+        y: (shouldReduceMotion || isMobileViewport) ? 0 : 15,
       },
       whileInView: {
         opacity: 1,
@@ -128,7 +140,7 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
         transition: {
           duration: 0.9,
           ease: [0.16, 1, 0.3, 1],
-          delay: 0.22
+          delay: isMobileViewport ? 0 : 0.22
         }
       }
     };
@@ -137,8 +149,8 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
   const getTitleVariants = () => {
     return {
       initial: {
-        opacity: 0,
-        y: shouldReduceMotion ? 0 : 20,
+        opacity: isMobileViewport ? 1 : 0,
+        y: (shouldReduceMotion || isMobileViewport) ? 0 : 20,
       },
       whileInView: {
         opacity: 1,
@@ -146,7 +158,7 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
         transition: {
           duration: 1.1,
           ease: [0.16, 1, 0.3, 1],
-          delay: 0.28
+          delay: isMobileViewport ? 0 : 0.28
         }
       }
     };
@@ -155,8 +167,8 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
   const getImageVariants = () => {
     return {
       initial: {
-        opacity: 0,
-        clipPath: shouldReduceMotion ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
+        opacity: isMobileViewport ? 1 : 0,
+        clipPath: (shouldReduceMotion || isMobileViewport) ? "inset(0% 0% 0% 0%)" : "inset(0% 0% 100% 0%)",
       },
       whileInView: {
         opacity: 1,
@@ -164,7 +176,7 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
         transition: {
           duration: 1.15,
           ease: [0.16, 1, 0.3, 1],
-          delay: 0.05
+          delay: isMobileViewport ? 0 : 0.05
         }
       }
     };
@@ -174,8 +186,8 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
     const delay = paraIndex === 0 ? 0.34 : 0.40;
     return {
       initial: {
-        opacity: 0,
-        y: shouldReduceMotion ? 0 : 15,
+        opacity: isMobileViewport ? 1 : 0,
+        y: (shouldReduceMotion || isMobileViewport) ? 0 : 15,
       },
       whileInView: {
         opacity: 1,
@@ -183,7 +195,7 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
         transition: {
           duration: 0.9,
           ease: [0.16, 1, 0.3, 1],
-          delay
+          delay: isMobileViewport ? 0 : delay
         }
       }
     };
@@ -260,10 +272,10 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
               alt={project.title}
               onLoad={() => setIsImageLoaded(true)}
               loading={shouldEagerLoad ? "eager" : "lazy"}
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`absolute inset-0 w-full h-full object-contain object-top p-4 sm:p-6 bg-zinc-900/60 dark:bg-zinc-950/40 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isImageLoaded ? 'opacity-100' : 'opacity-0'
               } ${
-                isThisProjectActive ? 'scale-[1.035]' : 'scale-100'
+                isThisProjectActive ? 'scale-[1.015]' : 'scale-100'
               }`}
               referrerPolicy="no-referrer"
             />
@@ -366,7 +378,7 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
                 y: exitTextY,
                 opacity: exitOpacity
               }}
-              className="w-full lg:col-span-5 flex flex-col gap-6 md:gap-8 justify-start order-2 lg:order-1 lg:pl-2"
+              className="w-full lg:col-span-5 flex flex-col gap-6 md:gap-8 justify-start order-2 lg:order-1"
             >
               {titleModule}
               {descriptionModule}
@@ -405,7 +417,7 @@ const ProjectChapter = React.memo<ProjectChapterProps>(({
         showFaded ? "opacity-35" : "opacity-100"
       } py-10 sm:py-16 md:py-20`}
     >
-      <div className={`w-full max-w-7xl mx-auto px-0 sm:px-12 ${isEven ? 'lg:px-16' : 'lg:pl-[12vw] lg:pr-16'}`}>
+      <div className="w-full max-w-7xl mx-auto px-0 sm:px-12 lg:px-16">
         {renderLayout()}
       </div>
     </motion.div>

@@ -24,7 +24,7 @@ const FluidInteractionCanvas = () => {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-102"
+          className="w-full h-full object-contain object-top p-4 sm:p-6 bg-zinc-900/60 dark:bg-zinc-950/40 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.015]"
           referrerPolicy="no-referrer"
         />
       )}
@@ -503,24 +503,18 @@ export default function ProjectCaseStudy({
     const list: { image: string; label: string }[] = [];
     if (project.image) {
       list.push({ image: project.image, label: "Featured Hero Specimen" });
-    }
-
-    /* 
-    // تعليق مؤقت لعرض صورة واحدة فقط حالياً
+    } /*
     if (project.gallery) {
       project.gallery.forEach((g, idx) => {
         if (!g) return;
-        const imgUrl = typeof g === "string" ? g : g.image;
-        const imgLabel =
-          typeof g === "string" ? `Specimen View ${idx + 1}` : g.label;
+        const imgUrl = typeof g === 'string' ? g : g.image;
+        const imgLabel = typeof g === 'string' ? `Specimen View ${idx + 1}` : g.label;
 
         if (imgUrl && imgUrl !== project.image) {
           list.push({ image: imgUrl, label: imgLabel });
         }
       });
-    }
-    */
-
+    }*/
     return list;
   }, [project]);
 
@@ -725,7 +719,7 @@ export default function ProjectCaseStudy({
                       alt={`${project.title} — ${item.label}`}
                       aspectRatio="aspect-video"
                       borderNone={true}
-                      className="rounded-none transition-transform duration-700 ease-out group-hover/editorial:scale-[1.015] object-cover w-full h-full"
+                      className="rounded-none transition-transform duration-700 ease-out group-hover/editorial:scale-[1.015] object-contain object-top p-4 sm:p-6 bg-zinc-900/60 dark:bg-zinc-950/40 w-full h-full"
                     />
                   </div>
                   <figcaption className="flex items-center mt-1.5 px-0 font-mono text-[10px] sm:text-[11px] tracking-widest uppercase text-zinc-500/80 dark:text-zinc-400/80">
